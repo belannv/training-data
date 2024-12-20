@@ -106,6 +106,7 @@ public class BasicDataOperationUsingList {
 
         // записати вiдсортований масив в окремий файл
         Utils.writeArrayToFile(dateArray, PATH_TO_DATA_FILE + ".sorted");
+        System.out.println("sorted");
     }
 
     /**
@@ -231,19 +232,15 @@ class Utils {
      */
     static LocalDate[] readArrayFromFile(String pathToFile) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate[] tempArray = new LocalDate[1000];
-        int index = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
-            br.lines().map(dataLine -> LocalDate.parse(dataLine, formatter)).toArray(LocalDate[]::new);
+            return br.lines().map(dataLine -> LocalDate.parse(dataLine, formatter)).toArray(LocalDate[]::new);
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        LocalDate[] finalArray = new LocalDate[index];
-        System.arraycopy(tempArray, 0, finalArray, 0, index);
-
-        return finalArray;
+        
+        return null;
     }
 
     /**
