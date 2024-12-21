@@ -90,7 +90,7 @@ public class BasicDataOperationUsingList {
         searchArray();
         findMinAndMaxInArray();
 
-        sortArray();
+        sortArrayToReverseOrder();
         
         searchArray();
         findMinAndMaxInArray();
@@ -99,7 +99,7 @@ public class BasicDataOperationUsingList {
         searchList();
         findMinAndMaxInList();
 
-        sortList();
+        sortListToReverseOrder();
 
         searchList();
         findMinAndMaxInList();
@@ -112,10 +112,10 @@ public class BasicDataOperationUsingList {
      * Сортує масив об'єктiв LocalDateTime та виводить початковий i вiдсортований масиви.
      * Вимiрює та виводить час, витрачений на сортування масиву в наносекундах.
      */
-    void sortArray() {
+    void sortArrayToReverseOrder() {
         long startTime = System.nanoTime();
 
-        Arrays.sort(dateTimeArray);
+        Arrays.sort(dateTimeArray, Collections.reverseOrder());
 
         Utils.printOperationDuration(startTime, "сортування масиву дати i часу");
     }
@@ -207,10 +207,10 @@ public class BasicDataOperationUsingList {
      * Сортує ArrayList об'єктiв LocalDateTime та виводить початковий i вiдсортований списки.
      * Вимiрює та виводить час, витрачений на сортування списку в наносекундах.
      */
-    void sortList() {
+    void sortListToReverseOrder() {
         long startTime = System.nanoTime();
 
-        Collections.sort(dateTimeList);
+        Collections.sort(dateTimeList, Collections.reverseOrder());
 
         Utils.printOperationDuration(startTime, "сортування ArrayList дати i часу");
     }
